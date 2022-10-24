@@ -193,20 +193,14 @@ const Main = () => {
       <GridBoxContainer>
         <GridBox>
           {arrPixel.map((pixel, idx) => 
-            <Pixel key={idx} onClick={() => handleSelect(pixel)} 
-              style={{
-                color: `${pixel.match ? 'green' : 'gold'}`,
-                backgroundColor: `${pixel.match ? 'rgba(0,0,0,.9)' : 'rgba(0,0,0,.7)'}`,
-                cursor:`${wait ? 'wait' : 'pointer'}`
-              }} 
-            >
+            <Pixel key={idx} match={pixel.match} wait={wait} onClick={() => handleSelect(pixel)} >
               {pixel.show || pixel.match ? pixel.sign : null}
             </Pixel>
           )}
         </GridBox>
       </GridBoxContainer>
       <ButtonsPanel>
-        <CustomBtn  onClick={handlePlay} style={{cursor: 'pointer'}}>
+        <CustomBtn  onClick={handlePlay}>
           Play Again
         </CustomBtn>
         <WinBtn winner={winner}>

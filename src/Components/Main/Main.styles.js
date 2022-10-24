@@ -25,11 +25,11 @@ export const Pixel = styled.div`
   height: 60px;
   width: 60px;
   border: 1px solid rgba(255,69,58,.3);
-  background-color: rgba(0,0,0,.7);
-  color: white;
+  background-color: ${props => props.match ? 'rgba(0,0,0,.9)': 'rgba(0,0,0,.7)'};
+  color: ${props => props.match ? 'green' : 'gold'};
+  cursor: ${props => props.wait ? 'wait' : 'pointer'};
   font-size: 1.5rem;
   font-weight: bolder;
-  cursor: pointer;
   border-radius: 10px;
   transition: opacity .3s ease-out;
   opacity: 1;
@@ -77,7 +77,7 @@ export const CustomBtn = styled(Pixel)`
   height: 50px;
   width: 120px;
   font-size: 1rem;
-  cursor: default;
+  cursor: pointer;
   @media only screen and (min-width: 576px) {
     width: 200px;
   }
@@ -89,6 +89,7 @@ export const WinBtn = styled(CustomBtn)`
   opacity: ${props => props.winner ? 1 : 0};
   color: gold;
   transition: opacity .5s, width .5s, font-size .8s;
+  cursor: default;
 
   @media only screen and (min-width: 576px) {
     width: ${props => props.winner ? '200px' : 0};
